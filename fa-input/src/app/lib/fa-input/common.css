@@ -1,0 +1,25 @@
+
+ :host ::ng-deep input {
+    border: none;
+    outline: none;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.icon {
+    width: 20px;
+    text-align: center;
+    padding-left: 5px;
+    padding-right: 2px;
+}
+
+ :host {
+     border-width: 1px;
+     border-style: solid;
+     padding: 1px;
+     display: inline-block;
+ }
+
+ :host(.input-focus) {
+     outline: none;
+ }

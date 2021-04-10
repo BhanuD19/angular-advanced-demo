@@ -1,0 +1,9 @@
+:host-context(.fa-input-red) {
+    border-color: red;
+
+    &.input-focus {
+        box-shadow: 0px 0px 5px red;
+        -webkit-box-shadow: 0px 0px 5px red;
+
+    }
+}
