@@ -9,10 +9,10 @@ import { InputRefDirective } from '../common/input-ref.directive';
 export class FaInputComponent implements AfterContentInit {
 
   @Input()
-  icon: String;
+  icon= '';
 
-  @ContentChild(InputRefDirective, {static: true})
-  input: InputRefDirective;
+  @ContentChild(InputRefDirective)
+  input!: InputRefDirective;
 
   @HostBinding('class.input-focus')
   get isInputFocus() {
@@ -20,13 +20,15 @@ export class FaInputComponent implements AfterContentInit {
   }
 
   get classes() {
-    const cssClasses= {};
+    let cssClass= 'fa';
     if (this.icon) {
-      cssClasses['fa-'+this.icon ] = true;
+      cssClass = (cssClass + this.icon) as string;
     }
+    const cssClasses: {[cssClass: string]: boolean} = {
+      cssClass: true
+    };
     return cssClasses;
   }
-  
   ngAfterContentInit(): void {
     if(!this.input) {
       console.error('No input bootstrapped');

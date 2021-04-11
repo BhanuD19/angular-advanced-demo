@@ -3,9 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 
-import {HttpClientModule} from "@angular/common/http";
-import { FaInputComponent } from './lib/fa-input/fa-input.component';
-import { InputRefDirective } from './lib/common/input-ref.directive';
+import {HttpClientModule} from '@angular/common/http';
 import { FaInputModule } from './lib/fa-input.module';
 
 @NgModule({

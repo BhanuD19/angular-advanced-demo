@@ -1,5 +1,5 @@
 import { DebugElement } from '@angular/core';
-import { TestBed, async, ComponentFixture } from '@angular/core/testing';
+import { TestBed, ComponentFixture, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -12,7 +12,7 @@ describe('AppComponent', () => {
         el: DebugElement,
         emailField: DebugElement;
 
-    beforeEach(async(() => {
+    beforeEach(waitForAsync(() => {
         TestBed.configureTestingModule({
             declarations: [
                 AppComponent, FaInputComponent, InputRefDirective,
@@ -28,19 +28,19 @@ describe('AppComponent', () => {
         fixture.detectChanges();
     });
 
-    it('should create the app', async(() => {
+    it('should create the app', waitForAsync(() => {
         expect(component).toBeTruthy();
     }));
     
-    it('should create fa-input email element', async(() => {
+    it('should create fa-input email element', waitForAsync(() => {
         expect(emailField).toBeTruthy();
     }));
     
-    it('should should include correct email icon inside the email input', async(() => {
+    it('should should include correct email icon inside the email input', waitForAsync(() => {
         expect(emailField.query(By.css('i.icon.fa.fa-envelope'))).toBeTruthy();
     }));
 
-    it('should project the correct test input inside the email field', async(() => {
+    it('should project the correct test input inside the email field', waitForAsync(() => {
         expect(emailField.query(By.css('input.test-class'))).toBeTruthy();
     }));
 });

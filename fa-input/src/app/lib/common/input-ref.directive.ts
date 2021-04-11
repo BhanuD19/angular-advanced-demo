@@ -12,7 +12,7 @@ export class InputRefDirective {
     this.focus = true;
   }
 
-  @HostListener('blur') 
+  @HostListener('blur')
   onBlur() {
     this.focus = false;
   }
