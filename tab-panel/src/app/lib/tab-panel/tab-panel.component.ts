@@ -15,8 +15,7 @@ export class TabPanelComponent implements AfterContentInit {
   headerTemplate!: TemplateRef<any>;
 
   ngAfterContentInit(): void {
-    const selectedTabs = this.tabs?.find(tab => tab.selected)
-    
+    const selectedTabs = this.tabs?.find(tab => tab.selected);
     if(!selectedTabs && this.tabs.first) {
       this.tabs.first.selected = true;
     }
@@ -30,7 +29,7 @@ export class TabPanelComponent implements AfterContentInit {
   get tabsContext() {
     return {
       tabs: this.tabs
-    }
+    };
   }
 
 

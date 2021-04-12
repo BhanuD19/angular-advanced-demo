@@ -13,6 +13,7 @@ import { TabPanelModule } from './lib/tab-panel.module';
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
     TabPanelModule
   ],
   providers: [],
