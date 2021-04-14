@@ -1,0 +1,114 @@
+<header class="l-header">
+  <ul class="top-menu disable-link-styles">
+    <li class="logo-small-container">
+      <a class="v-center-block-parent">
+        <img
+          class="v-center-block logo-small angular-university-logo"
+          src="https://angular-academy.s3.amazonaws.com/main-logo/main-page-logo-small-hat.png"
+          data-pin-nopin="true"
+        />
+      </a>
+    </li>
+    <li>
+      <a>Modal</a>
+    </li>
+  </ul>
+</header>
+
+<body>
+  <div class="container">
+    <h1>Modal Examples</h1>
+
+    <ng-template
+      #authModalBody
+      let-title="title"
+      let-loginTabActive="loginTabActive"
+    >
+      <h5>
+        {{ title }}
+      </h5>
+      <tab-panel>
+        <tab title="Login" [selected]="loginTabActive">
+          <form>
+            <div class="form-field">
+              <fa-input id="email-field" icon="envelope">
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  autocomplete="off"
+                />
+              </fa-input>
+            </div>
+            <div class="form-field">
+              <fa-input icon="lock">
+                <input
+                  type="password"
+                  name="password"
+                  placeholder="Password"
+                  autocomplete="off"
+                />
+              </fa-input>
+            </div>
+          </form>
+        </tab>
+        <tab title="Sign Up" [selected]="!loginTabActive">
+          <form>
+            <div class="form-field">
+              <fa-input icon="envelope">
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  autocomplete="off"
+                />
+              </fa-input>
+            </div>
+            <div class="form-field">
+              <fa-input icon="lock">
+                <input
+                  type="password"
+                  name="password"
+                  placeholder="Password"
+                  autocomplete="off"
+                />
+              </fa-input>
+            </div>
+            <div class="form-field">
+              <fa-input icon="lock">
+                <input
+                  type="password"
+                  name="confirmPassword"
+                  placeholder="Confirm Password"
+                  autocomplete="off"
+                />
+              </fa-input>
+            </div>
+          </form>
+        </tab>
+      </tab-panel>
+    </ng-template>
+
+    <ng-template [modalOpenOnClick]="[loginButton, signUpButton]">
+      <app-modal
+        #modal
+        class="auth-modal"
+        [context]= "{title: 'Login or SignUp', loginTabActive: loginActive}"
+        [body]="authModalBody"
+        [hideOnClickOutside]="false"
+      >
+        <i class="fa fa-times" (click)="modal.closeModal()"></i>
+      </app-modal>
+    </ng-template>
+
+    <app-modal id="testModal" [modalOpenOnClick]= "[testModalButton]"></app-modal>
+
+    <div class="modal-buttons">
+      <button #loginButton (click)="setLoginActive(true)">Login</button>
+
+      <button #signUpButton (click)="setLoginActive(false)">Sign Up</button>
+
+      <button #testModalButton id="testModalButton">Test Button</button>
+    </div>
+  </div>
+</body>
