@@ -12,4 +12,4 @@ export function overWriteCharAtPosition(input: HTMLInputElement, position: numbe
       
     input.value = currentValue.slice(0, position) + key + currentValue.slice(position +1);
   
-  }
+}
